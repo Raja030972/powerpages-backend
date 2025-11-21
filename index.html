@@ -147,13 +147,20 @@
         <button id="sendBtn">Send</button>
     </div>
 
+
     <script>
+        import OpenAI from "openai";
+const client = new OpenAI();
         const API_URL = "https://symmetrical-space-happiness-jj7jpwrj649ph55vp-8000.app.github.dev/chat";
         const chat = document.getElementById("chat");
         const msgBox = document.getElementById("msgBox");
         const sendBtn = document.getElementById("sendBtn");
         const fileInput = document.getElementById("fileInput");
         const attachmentBox = document.getElementById("attachmentBox");
+        const response = await client.responses.create({
+  model: "gpt-5.1",
+  msgBox.value,
+});
 
         let historyList = [];
         let attachedFiles = [];
